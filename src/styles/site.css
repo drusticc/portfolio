@@ -16,6 +16,8 @@
 
 :root {
   color-scheme: light;
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) var(--paper);
   --raw-paper: #F4F1EA;
   --charcoal: #1A1A1A;
   --olive: #4A5240;
@@ -293,6 +295,7 @@ h1, h2, h3 { font-family: var(--display); }
 }
 
 @media (forced-colors: active) {
+  :root { scrollbar-width: auto; scrollbar-color: auto; }
   .section-arrow { display: none; }
   .section-arrow + .section { border-top: var(--line); }
   .button, .contact-section { border: 1px solid ButtonText; }
