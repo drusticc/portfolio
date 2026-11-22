@@ -138,14 +138,15 @@ h1, h2, h3 { font-family: var(--display); }
 
 
 .section-arrow {
-  --tile: clamp(.55rem, .95vw, .8rem);
-  display: grid;
-  justify-items: center;
-  gap: 1px;
+  --tile: clamp(.3rem, 1.35vw, .8rem);
+  display: flex;
+  justify-content: center;
+  gap: clamp(.35rem, 2vw, 1.5rem);
   color: var(--muted);
   opacity: .68;
   pointer-events: none;
 }
+.section-arrow-shape { display: grid; justify-items: center; gap: 1px; }
 .section-arrow-row { display: flex; gap: 1px; }
 .section-arrow span {
   display: grid;
