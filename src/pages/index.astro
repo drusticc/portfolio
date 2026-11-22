@@ -1,4 +1,5 @@
 ---
+import SectionArrow from '../components/SectionArrow.astro';
 import Site from '../layouts/Site.astro';
 import portfolio from '../data/portfolio';
 
@@ -19,9 +20,7 @@ const projectUrl = (slug: string) => `${home}projects/${slug}/`;
     </div>
   </section>
 
-  <div class="frame concrete-strip" aria-hidden="true">
-    {Array.from({ length: 68 }, () => <span></span>)}
-  </div>
+  <SectionArrow />
 
   <section class="frame section" id="projects" aria-labelledby="project-heading">
     <div class="section-title">
@@ -50,6 +49,8 @@ const projectUrl = (slug: string) => `${home}projects/${slug}/`;
       })}
     </div>
   </section>
+
+  <SectionArrow />
 
   <section class="frame section" id="skills" aria-labelledby="skills-heading">
     <h2 class="section-label" id="skills-heading">Skills &amp; Experience</h2>
