@@ -81,6 +81,13 @@ const nav = [
     <main id="main"><slot /></main>
     {showFooter && (
       <footer class="footer">
+        <div class="frame footer-inner">
+          <a class="wordmark" href={home}>{portfolio.name}</a>
+          <div class="footer-links">
+            {portfolio.contact.map((link) => <a href={link.url.includes(':') ? link.url : home + link.url}>{link.label}</a>)}
+          </div>
+        </div>
+      </footer>
     )}
   </body>
 </html>
