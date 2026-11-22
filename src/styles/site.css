@@ -16,9 +16,12 @@
 
 :root {
   color-scheme: light;
-  --paper: #F4F1EA;
-  --ink: #1A1A1A;
-  --muted: #4A5240;
+  --raw-paper: #F4F1EA;
+  --charcoal: #1A1A1A;
+  --olive: #4A5240;
+  --paper: var(--raw-paper);
+  --ink: var(--charcoal);
+  --muted: var(--olive);
   --rule: #000000;
   --accent: #FF5500;
   --line: 1px solid var(--rule);
@@ -30,13 +33,21 @@
   font-synthesis: none;
 }
 
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: var(--charcoal);
+  --ink: var(--raw-paper);
+  --muted: #B8C0A8;
+  --rule: #878D7B;
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 body { margin: 0; }
 h1, h2, h3, p, ul, figure { margin: 0; }
 img, video { display: block; max-width: 100%; }
 a { color: inherit; text-underline-offset: .22em; }
 a:hover { color: var(--muted); text-decoration-thickness: .12em; }
-a:focus-visible { outline: 3px solid var(--rule); outline-offset: 5px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--rule); outline-offset: 5px; }
 section[id] { scroll-margin-top: 1.25rem; }
 
 .frame { width: min(100% - 5rem, 84rem); margin-inline: auto; }
@@ -69,10 +80,28 @@ section[id] { scroll-margin-top: 1.25rem; }
 .header nav a { text-decoration: none; padding-block: .4rem; }
 .header nav a:hover { text-decoration: underline; }
 
+.header-controls { display: flex; align-items: center; flex-wrap: wrap; gap: .45rem 1.25rem; }
+.theme-toggle {
+  min-height: 2.75rem;
+  border: var(--line);
+  padding: .4rem .7rem;
+  color: var(--ink);
+  background: var(--paper);
+  font: 500 .875rem/1.4 var(--label);
+  cursor: pointer;
+}
+.theme-toggle:hover, .theme-toggle[aria-pressed='true'] {
+  color: var(--charcoal);
+  background: var(--accent);
+  border-color: var(--charcoal);
+}
+
 h1, h2, h3 { font-family: var(--display); }
 
 .intro { padding-block: clamp(1.75rem, 4vw, 3.5rem); }
 .intro-identity {
+  position: relative;
+  padding-inline-end: clamp(3.5rem, 12vw, 10.5rem);
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -90,6 +119,33 @@ h1, h2, h3 { font-family: var(--display); }
   color: var(--muted);
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   line-height: 1.5;
+}
+
+.intro-mark {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: 50%;
+  translate: 0 -58%;
+  width: clamp(2.75rem, 10vw, 8.5rem);
+  aspect-ratio: 2.2;
+  pointer-events: none;
+}
+.intro-mark::before, .intro-mark::after, .intro-mark span {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+.intro-mark::before {
+  background: var(--muted);
+  clip-path: polygon(22% 0, 50% 0, 28% 100%, 0 100%);
+}
+.intro-mark span {
+  background: var(--accent);
+  clip-path: polygon(54% 0, 80% 0, 58% 100%, 32% 100%);
+}
+.intro-mark::after {
+  background: var(--ink);
+  clip-path: polygon(84% 0, 100% 0, 78% 100%, 62% 100%);
 }
 
 .intro-about { padding-top: clamp(1rem, 2.5vw, 1.85rem); }
@@ -123,7 +179,7 @@ h1, h2, h3 { font-family: var(--display); }
   padding: .9rem 1.15rem;
   border: var(--line);
   background: var(--accent);
-  color: var(--ink);
+  color: var(--charcoal);
   text-decoration: none;
   font: 500 .875rem/1.4 var(--label);
 }
@@ -166,11 +222,12 @@ h1, h2, h3 { font-family: var(--display); }
 .project-cover span { padding: .75rem; }
 .project-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 .cover-scbscn {
-  background: var(--muted);
+  background: var(--olive);
+  color: var(--raw-paper);
   font-family: var(--label);
   letter-spacing: .01em;
 }
-.cover-head-overhealed { color: var(--ink); background: var(--accent); }
+.cover-head-overhealed { color: var(--charcoal); background: var(--accent); }
 .project-info { padding: .5rem 0; }
 .project-info .label { color: var(--muted); }
 .project-info h3 {
@@ -196,7 +253,7 @@ h1, h2, h3 { font-family: var(--display); }
 .skill li + li { margin-top: .45rem; }
 .related-links { display: flex; flex-wrap: wrap; gap: .5rem 1rem; margin-top: .65rem; }
 
-.contact-section { color: var(--paper); background: var(--ink); border-top: var(--line); }
+.contact-section { color: var(--raw-paper); background: var(--charcoal); border-top: var(--line); }
 .contact-inner {
   display: flex;
   flex-wrap: wrap;
@@ -238,5 +295,6 @@ h1, h2, h3 { font-family: var(--display); }
 }
 
 @media (forced-colors: active) {
+  .intro-mark { display: none; }
   .button, .contact-section { border: 1px solid ButtonText; }
 }
