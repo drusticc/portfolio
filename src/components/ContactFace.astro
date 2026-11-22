@@ -1,0 +1,20 @@
+---
+const face = [
+  '...#####...',
+  '..#.....#..',
+  '.#.......#.',
+  '#.........#',
+  '#..#...#..#',
+  '#.........#',
+  '#..+...+..#',
+  '#...+++...#',
+  '.#.......#.',
+  '..#.....#..',
+  '...#####...',
+];
+---
+<div class="contact-face" aria-hidden="true">
+  {face.flatMap((row) => Array.from(row, (cell) => (
+    <span class:list={{ 'geometric-tile': cell !== '.', 'smile-tile': cell === '+' }}></span>
+  )))}
+</div>

@@ -156,14 +156,14 @@ h1, h2, h3 { font-family: var(--display); }
 }
 .section-arrow-shape { display: grid; justify-items: center; gap: 1px; }
 .section-arrow-row { display: flex; gap: 1px; }
-.section-arrow span {
+.geometric-tile {
   display: grid;
   place-items: center;
   width: var(--tile);
   height: var(--tile);
   border: 1px solid currentColor;
 }
-.section-arrow span::before {
+.geometric-tile::before {
   content: '';
   width: 70%;
   height: 72%;
@@ -268,6 +268,18 @@ h1, h2, h3 { font-family: var(--display); }
   gap: 1.75rem 2rem;
   padding-block: clamp(2.5rem, 8vw, 7rem);
 }
+.contact-face {
+  --tile: clamp(.53rem, 1.12vw, .94rem);
+  display: grid;
+  grid-template-columns: repeat(11, var(--tile));
+  grid-auto-rows: var(--tile);
+  gap: 2px;
+  align-self: center;
+  color: #A0A0A0;
+  pointer-events: none;
+}
+.contact-face .smile-tile { color: var(--accent); }
+
 .contact-links { display: flex; align-items: start; flex-direction: column; gap: .65rem; }
 .contact-links a { font-size: clamp(1.05rem, 2.6vw, 2.1rem); overflow-wrap: anywhere; }
 .contact-links a:hover { color: var(--accent); text-decoration-thickness: .15em; }
@@ -294,6 +306,8 @@ h1, h2, h3 { font-family: var(--display); }
 }
 
 @media (max-width: 34rem) {
+  .contact-inner { align-items: center; }
+  .contact-links { flex-basis: 100%; }
   .case h1 { font-size: clamp(2.65rem, 10.5vw, 3.6rem); letter-spacing: -.07em; }
   .project-link { grid-template-columns: minmax(0, 1fr); gap: .8rem; }
   .project-cover { font-size: 2.15rem; }
@@ -302,7 +316,7 @@ h1, h2, h3 { font-family: var(--display); }
 
 @media (forced-colors: active) {
   :root { scrollbar-width: auto; scrollbar-color: auto; }
-  .section-arrow { display: none; }
+  .section-arrow, .contact-face { display: none; }
   .section-arrow + .section { border-top: var(--line); }
   .button, .contact-section { border: 1px solid ButtonText; }
 }
