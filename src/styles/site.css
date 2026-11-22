@@ -100,8 +100,6 @@ h1, h2, h3 { font-family: var(--display); }
 
 .intro { padding-block: clamp(1.75rem, 4vw, 3.5rem); }
 .intro-identity {
-  position: relative;
-  padding-inline-end: clamp(3.5rem, 12vw, 10.5rem);
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -119,33 +117,6 @@ h1, h2, h3 { font-family: var(--display); }
   color: var(--muted);
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   line-height: 1.5;
-}
-
-.intro-mark {
-  position: absolute;
-  inset-inline-end: 0;
-  inset-block-start: 50%;
-  translate: 0 -58%;
-  width: clamp(2.75rem, 10vw, 8.5rem);
-  aspect-ratio: 2.2;
-  pointer-events: none;
-}
-.intro-mark::before, .intro-mark::after, .intro-mark span {
-  content: '';
-  position: absolute;
-  inset: 0;
-}
-.intro-mark::before {
-  background: var(--muted);
-  clip-path: polygon(22% 0, 50% 0, 28% 100%, 0 100%);
-}
-.intro-mark span {
-  background: var(--accent);
-  clip-path: polygon(54% 0, 80% 0, 58% 100%, 32% 100%);
-}
-.intro-mark::after {
-  background: var(--ink);
-  clip-path: polygon(84% 0, 100% 0, 78% 100%, 62% 100%);
 }
 
 .intro-about { padding-top: clamp(1rem, 2.5vw, 1.85rem); }
@@ -295,6 +266,5 @@ h1, h2, h3 { font-family: var(--display); }
 }
 
 @media (forced-colors: active) {
-  .intro-mark { display: none; }
   .button, .contact-section { border: 1px solid ButtonText; }
 }
