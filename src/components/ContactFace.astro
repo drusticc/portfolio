@@ -1,20 +1,27 @@
 ---
 const face = [
-  '...#####...',
-  '..#.....#..',
-  '.#.......#.',
-  '#.........#',
-  '#..#...#..#',
-  '#.........#',
-  '#..+...+..#',
-  '#...+++...#',
-  '.#.......#.',
-  '..#.....#..',
-  '...#####...',
+  '...#######...',
+  '..#.......#..',
+  '.#.........#.',
+  '#..+.....+..#',
+  '#..+.....+..#',
+  '#..+.....+..#',
+  '#...........#',
+  '#...........#',
+  '#..+.....+..#',
+  '#...+...+...#',
+  '.#...+++...#.',
+  '..#.......#..',
+  '...#######...',
 ];
+const tiles = face.join('').split('');
 ---
-<div class="contact-face" aria-hidden="true">
-  {face.flatMap((row) => Array.from(row, (cell) => (
-    <span class:list={{ 'geometric-tile': cell !== '.', 'smile-tile': cell === '+' }}></span>
-  )))}
+<div class="contact-faces" aria-hidden="true">
+  {Array.from({ length: 5 }, () => (
+    <div class="contact-face">
+      {tiles.map((cell) => (
+        <span class:list={{ 'geometric-tile': cell !== '.', 'face-accent': cell === '+' }}></span>
+      ))}
+    </div>
+  ))}
 </div>

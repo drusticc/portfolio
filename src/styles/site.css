@@ -268,17 +268,25 @@ h1, h2, h3 { font-family: var(--display); }
   gap: 1.75rem 2rem;
   padding-block: clamp(2.5rem, 8vw, 7rem);
 }
-.contact-face {
-  --tile: clamp(.53rem, 1.12vw, .94rem);
-  display: grid;
-  grid-template-columns: repeat(11, var(--tile));
-  grid-auto-rows: var(--tile);
-  gap: 2px;
-  align-self: center;
-  color: #A0A0A0;
+.contact-faces {
+  --tile: clamp(.42rem, 1.05vw, .75rem);
+  display: flex;
+  flex: 0 0 100%;
+  justify-content: space-between;
+  gap: .75rem;
+  border-block: 1px solid #595959;
+  padding-block: clamp(.9rem, 2.5vw, 2rem);
   pointer-events: none;
 }
-.contact-face .smile-tile { color: var(--accent); }
+.contact-face {
+  display: grid;
+  grid-template-columns: repeat(13, var(--tile));
+  grid-auto-rows: var(--tile);
+  gap: 1px;
+  color: #A0A0A0;
+}
+.contact-face .face-accent { color: var(--accent); }
+
 
 .contact-links { display: flex; align-items: start; flex-direction: column; gap: .65rem; }
 .contact-links a { font-size: clamp(1.05rem, 2.6vw, 2.1rem); overflow-wrap: anywhere; }
@@ -303,11 +311,13 @@ h1, h2, h3 { font-family: var(--display); }
   .header-inner, .footer-inner { align-items: flex-start; flex-direction: column; padding-block: .85rem; gap: .55rem; }
   .split { grid-template-columns: minmax(0, 1fr); }
   .editorial-copy { columns: 1; max-width: 65ch; }
+  .contact-face:nth-child(n + 4) { display: none; }
 }
 
 @media (max-width: 34rem) {
   .contact-inner { align-items: center; }
   .contact-links { flex-basis: 100%; }
+  .contact-face:nth-child(n + 3) { display: none; }
   .case h1 { font-size: clamp(2.65rem, 10.5vw, 3.6rem); letter-spacing: -.07em; }
   .project-link { grid-template-columns: minmax(0, 1fr); gap: .8rem; }
   .project-cover { font-size: 2.15rem; }
@@ -316,7 +326,7 @@ h1, h2, h3 { font-family: var(--display); }
 
 @media (forced-colors: active) {
   :root { scrollbar-width: auto; scrollbar-color: auto; }
-  .section-arrow, .contact-face { display: none; }
+  .section-arrow, .contact-faces { display: none; }
   .section-arrow + .section { border-top: var(--line); }
   .button, .contact-section { border: 1px solid ButtonText; }
 }
