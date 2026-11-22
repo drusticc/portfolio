@@ -9,7 +9,7 @@ This site introduces Hudson Glines, a Computer Systems Technology student at Sas
 The site uses Astro, Bun, and Node.js 24. From a local checkout:
 
 ```sh
-bun install
+bun install --frozen-lockfile --ignore-scripts
 bun run dev
 ```
 

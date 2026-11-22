@@ -30,13 +30,7 @@ jobs:
           bun-version: 1.3.14
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
         id: pages
-      - run: bun install --ignore-scripts
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: bun-lock-bootstrap
-          path: bun.lock
-          retention-days: 1
-          if-no-files-found: error
+      - run: bun install --frozen-lockfile --ignore-scripts
       - run: bun run build --site "$PAGES_ORIGIN" --base "$PAGES_BASE"
         env:
           PAGES_ORIGIN: ${{ steps.pages.outputs.origin }}
