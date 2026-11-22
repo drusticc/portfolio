@@ -4,18 +4,11 @@ import portfolio from '../data/portfolio';
 
 const home = import.meta.env.BASE_URL;
 const projectUrl = (slug: string) => `${home}projects/${slug}/`;
-const [opening, ending] = portfolio.opening.split(' before ');
 ---
 <Site>
-  <section class="hero frame" aria-labelledby="opening">
-    <div class="hero-top">
-      <p class="label">{portfolio.role}</p>
-      <p class="label hero-school">{portfolio.school}</p>
-    </div>
-    <h1 id="opening">{opening}<br /><span>before {ending}</span></h1>
-    <div class="hero-bottom">
-      <a class="button" href="#projects">View projects</a>
-    </div>
+  <section class="intro frame" aria-labelledby="intro-name">
+    <h1 id="intro-name">{portfolio.name}</h1>
+    <p>{portfolio.role} at {portfolio.school}</p>
   </section>
 
   <section class="frame section" id="projects" aria-labelledby="project-heading">

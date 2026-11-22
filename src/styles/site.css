@@ -53,37 +53,25 @@ section[id] { scroll-margin-top: 1.25rem; }
 .header nav a { text-decoration: none; padding-block: .4rem; }
 .header nav a:hover { text-decoration: underline; }
 
-.hero {
-  position: relative;
-  isolation: isolate;
-  min-height: min(69vh, 47rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: clamp(2rem, 6vw, 5rem);
-  padding-block: clamp(2rem, 4.5vw, 4rem);
+.intro { padding-block: clamp(2rem, 5vw, 4rem); }
+.intro h1 {
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  line-height: 1.04;
+  letter-spacing: -.055em;
 }
-.hero::after {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  inset: 0 0 0 54%;
-  background: radial-gradient(circle, #343a991f 1px, transparent 1.4px) 0 0 / 12px 12px;
-  mask-image: linear-gradient(to right, transparent, black 70%);
-  pointer-events: none;
+.intro p {
+  margin-top: .5rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.5;
 }
-.hero-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .35rem 1rem; }
-.hero-school { color: var(--muted); }
 
-.hero h1, .case h1 {
+.case h1 {
   font-weight: 800;
-  font-size: clamp(3.25rem, 8.8vw, 9.25rem);
   line-height: .92;
   letter-spacing: -.085em;
   text-wrap: balance;
 }
-.hero h1 { text-wrap: wrap; }
-.hero h1 span { color: var(--blue); }
 
 .button {
   display: inline-flex;
@@ -195,14 +183,12 @@ section[id] { scroll-margin-top: 1.25rem; }
 @media (max-width: 48rem) {
   .frame { width: calc(100% - 2rem); }
   .header-inner, .footer-inner { align-items: flex-start; flex-direction: column; padding-block: .85rem; gap: .55rem; }
-  .hero { min-height: auto; }
-  .hero::after { inset-inline: 30% 0; }
   .split { grid-template-columns: minmax(0, 1fr); }
   .desktop-only { display: none; }
 }
 
 @media (max-width: 34rem) {
-  .hero h1, .case h1 { font-size: clamp(2.65rem, 10.5vw, 3.6rem); letter-spacing: -.07em; }
+  .case h1 { font-size: clamp(2.65rem, 10.5vw, 3.6rem); letter-spacing: -.07em; }
   .project-link { grid-template-columns: minmax(0, 1fr); gap: .8rem; }
   .project-cover { font-size: 2.15rem; }
   .project-cta { margin-top: .7rem; }
