@@ -17,10 +17,11 @@ const projectUrl = (slug: string) => `${home}projects/${slug}/`;
         {portfolio.about.map((paragraph) => <p>{paragraph}</p>)}
       </div>
     </div>
-    <div class="concrete-strip" aria-hidden="true">
-      {Array.from({ length: 68 }, () => <span></span>)}
-    </div>
   </section>
+
+  <div class="frame concrete-strip" aria-hidden="true">
+    {Array.from({ length: 68 }, () => <span></span>)}
+  </div>
 
   <section class="frame section" id="projects" aria-labelledby="project-heading">
     <div class="section-title">

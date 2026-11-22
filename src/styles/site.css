@@ -144,10 +144,10 @@ h1, h2, h3 { font-family: var(--display); }
   grid-auto-rows: var(--tile);
   block-size: calc(var(--tile) * 2);
   overflow: hidden;
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
   color: var(--muted);
   pointer-events: none;
 }
+.concrete-strip + .section { border-top: 0; }
 .concrete-strip span {
   display: grid;
   place-items: center;
@@ -292,5 +292,6 @@ h1, h2, h3 { font-family: var(--display); }
 
 @media (forced-colors: active) {
   .concrete-strip { display: none; }
+  .concrete-strip + .section { border-top: var(--line); }
   .button, .contact-section { border: 1px solid ButtonText; }
 }
