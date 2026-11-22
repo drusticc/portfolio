@@ -1,0 +1,102 @@
+{
+  "name": "Hudson Glines",
+  "role": "Computer Systems Technology student",
+  "school": "Saskatchewan Polytechnic",
+  "opening": "I loved technology before I knew what calculus was.",
+  "about": [
+    "In elementary school, I started a computer-building service and began learning Python, which I continued studying in my high school computer science classes. Today, I’m studying Computer Systems Technology at Saskatchewan Polytechnic and working toward a career as a software developer.",
+    "Most of my experience is in IT and web development. I am interested in understanding how software works at a lower level. I break down complex problems logically and turn my ideas into practical solutions. In teams, I spot my peers’ strengths and highlight them to help us move forward faster.",
+    "I believe clear communication is everything. When I help someone solve a problem, I want them to understand the solution as well. I see so much value in supporting others because helping someone else only deepens my own understanding.",
+    "After graduation, I hope to start in web development or another junior software development role, where I can contribute to real projects and keep exploring low-level programming. Long term, my goal is to take on challenging problems and help build technology that moves the world forward."
+  ],
+  "contact": [
+    {
+      "label": "hudsonglines@gmail.com",
+      "url": "mailto:hudsonglines@gmail.com"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/drusticc"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Software Development",
+      "items": [
+        "Developing a responsive full-stack application using Next.js and Supabase as part of a 9-person development team.",
+        "Developed a 2D game in 2 days using Lua and LÖVE2D, implementing gameplay mechanics, player movement, and game logic with a 3-person development team."
+      ],
+      "projects": [
+        "scbscn",
+        "head-overhealed"
+      ]
+    },
+    {
+      "title": "Automation",
+      "items": [
+        "Automated device-cleanup outreach using a Power Automate flow that pulled user and device information from Excel to generate personalized Teams messages for 200 users, saving hours of manual work and improving consistency."
+      ],
+      "projects": []
+    },
+    {
+      "title": "Communication and Teamwork",
+      "items": [
+        "Collaborated with an Electrical Engineering intern to audit mine-site network infrastructure and update fiber-optic drawings.",
+        "Coordinated software projects with over 5 different groups through assignments, game jams, and midterm projects, assigning roles and contributing to feature development."
+      ],
+      "projects": [
+        "synthdicate",
+        "head-overhealed"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "slug": "synthdicate",
+      "title": "Synthdicate Website",
+      "label": "Web development",
+      "short": "Synthdicate",
+      "stack": [
+        "Astro",
+        "GSAP"
+      ],
+      "overview": "I designed and developed a website for Synthdicate Entertainment to give our fans one place to find tickets to our latest shows. I wanted this site to be easy to stumble upon when searching for events on Google. Over two weeks I learned to use Astro and iteratively built a working prototype and then added sections and made changes based on feedback from my team. I was most challenged by SVG graphics and GSAP animations. Working through these challenges taught me a little more about web graphics and helped me to create a homepage I am proud to represent our brand with.",
+      "reflection": "I gained experience listening to the needs of non-technical users and quickly implementing features or changes that satisfy those needs. This project taught me how important it is to have a solid plan before building. In the future, I would much rather draft out a site on paper before ever writing a line of code to ensure I am fully confident in what I want from the project.",
+      "links": [
+        {
+          "label": "Visit Synthdicate",
+          "url": "https://synthdicate.com/"
+        }
+      ],
+      "media": []
+    },
+    {
+      "slug": "scbscn",
+      "title": "SCBSCN Assessment Platform",
+      "label": "Full-stack development",
+      "short": "SCBSCN",
+      "stack": [
+        "Next.js",
+        "Supabase"
+      ],
+      "overview": "I am currently working on a nine-person team as a developer building a platform for nursing students and faculty to use during practice clinical assessments. The platform lets observing students record what the student being assessed does well and where they could improve, while also allowing faculty to provide a direct feedback report to the student after the assessment. We use an agile approach to development with an iterative release structure. We are using Next.js and Supabase. I developed the entire instructor workflow allowing them to view current and past sessions, as well as review individual students' responses to previous assessments. Careful consideration was made to ensure the UX would be enjoyable for instructors when trying to find a specific session easily.",
+      "reflection": "This project has strengthened my teamwork abilities, as well as my client and supervisor communication skills. I gained experience workshopping ideas and translating client needs into technical designs and implementation. The stories I have developed so far have reminded me of the importance of creating interfaces for the user, and how to stay conscious of that from workshop to release.",
+      "links": [],
+      "media": []
+    },
+    {
+      "slug": "head-overhealed",
+      "title": "Head Overhealed",
+      "label": "Game development",
+      "short": "Head Overhealed",
+      "stack": [
+        "Lua",
+        "LÖVE"
+      ],
+      "overview": "I developed a game with 2 others in a 48-hour game jam. As this was my first ever game jam, I just wanted a game I could be proud of in the end. We iteratively developed new features very quickly. I learned Lua and the LOVE framework using documentation on the fly. I developed many features like various power-ups, enemies, and player movement. One of our biggest challenges was resolving tricky merge conflicts caused by all of us making changes quickly in one small project. We worked through those conflicts carefully to ensure that functionality was not lost or broken.",
+      "reflection": "Our team finished as runner-up for best sound design. I was most proud of becoming comfortable enough with a new set of tools to contribute to feature design and implementation. The whole experience has me more excited for hackathon and game jam opportunities in the future. This project highlighted the importance of planning the player experience early on. In the end, our game lacked a clear win condition and a difficulty ramp that makes it enjoyable and replayable. For future competitions, I want to plan those things earlier as they end up being the most important when judges and other attendees play your game.",
+      "links": [],
+      "media": []
+    }
+  ]
+}

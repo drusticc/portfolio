@@ -1,0 +1,83 @@
+---
+import Site from '../layouts/Site.astro';
+import portfolio from '../data/portfolio';
+
+const home = import.meta.env.BASE_URL;
+const projectUrl = (slug: string) => `${home}projects/${slug}/`;
+const [opening, ending] = portfolio.opening.split(' before ');
+---
+<Site>
+  <section class="hero frame" aria-labelledby="opening">
+    <div class="hero-top">
+      <p class="label">{portfolio.role}</p>
+      <p class="label hero-school">{portfolio.school}</p>
+    </div>
+    <h1 id="opening">{opening}<br /><span>before {ending}</span></h1>
+    <div class="hero-bottom">
+      <a class="button" href="#projects">View projects</a>
+    </div>
+  </section>
+
+  <section class="frame section" id="projects" aria-labelledby="project-heading">
+    <div class="section-title">
+      <h2 id="project-heading">Projects</h2>
+    </div>
+    <div class="project-list">
+      {portfolio.projects.map((project) => {
+        const cover = project.media.find((item) => item.type === 'image');
+        return (
+          <article class="project-row">
+            <a class="project-link" href={projectUrl(project.slug)}>
+              <div class:list={['project-cover', `cover-${project.slug}`]} aria-hidden="true">
+                {cover
+                  ? <img src={home + cover.src} alt="" loading="lazy" />
+                  : <span>{project.short}</span>}
+              </div>
+              <div class="project-info">
+                <p class="label">{project.label}</p>
+                <h3>{project.title}</h3>
+                <p class="project-stack">{project.stack.join(' / ')}</p>
+                <span class="project-cta">View case study</span>
+              </div>
+            </a>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="frame section split" id="about" aria-labelledby="about-heading">
+    <h2 id="about-heading">About</h2>
+    <div class="prose">
+      {portfolio.about.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </section>
+
+  <section class="frame section split" id="skills" aria-labelledby="skills-heading">
+    <h2 id="skills-heading">Skills &amp;<br class="desktop-only" /> Experience</h2>
+    <div class="skills-list">
+      {portfolio.skills.map((skill) => (
+        <div class="skill">
+          <h3>{skill.title}</h3>
+          <ul>{skill.items.map((item) => <li>{item}</li>)}</ul>
+          {skill.projects.length > 0 && (
+            <div class="related-links">
+              {portfolio.projects.filter((project) => skill.projects.includes(project.slug)).map((project) => (
+                <a href={projectUrl(project.slug)}>{project.short}</a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+    <div class="frame contact-inner">
+      <h2 id="contact-heading">Contact</h2>
+      <div class="contact-links">
+        {portfolio.contact.map((link) => <a href={link.url}>{link.label}</a>)}
+      </div>
+    </div>
+  </section>
+</Site>

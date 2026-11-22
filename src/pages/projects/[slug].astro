@@ -1,0 +1,58 @@
+---
+import Site from '../../layouts/Site.astro';
+import portfolio from '../../data/portfolio';
+
+export function getStaticPaths() {
+  return portfolio.projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const home = import.meta.env.BASE_URL;
+const others = portfolio.projects.filter((entry) => entry.slug !== project.slug);
+---
+<Site title={project.title}>
+  <article class="frame case">
+    <header class="case-header">
+      <a class="back-link" href={home + '#projects'}>All projects</a>
+      <p class="label">{project.label}</p>
+      <h1>{project.title}</h1>
+      <p class="project-stack">{project.stack.join(' / ')}</p>
+      {project.links.length > 0 && (
+        <div class="case-actions">
+          {project.links.map((link) => <a class="button" href={link.url}>{link.label}</a>)}
+        </div>
+      )}
+    </header>
+
+    {project.media.length > 0 && (
+      <div class="gallery">
+        {project.media.map((item) => (
+          <figure>
+            {item.type === 'video'
+              ? <video controls preload="metadata" src={home + item.src} aria-label={item.alt}></video>
+              : <img src={home + item.src} alt={item.alt} loading="lazy" />}
+            {item.caption && <figcaption>{item.caption}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    )}
+
+    <section class="frame-section split">
+      <h2>Overview &amp; process</h2>
+      <div class="prose"><p>{project.overview}</p></div>
+    </section>
+    <section class="frame-section split">
+      <h2>Reflection</h2>
+      <div class="prose"><p>{project.reflection}</p></div>
+    </section>
+    <nav class="frame-section split case-nav" aria-label="Other projects">
+      <h2>More projects</h2>
+      <ul>
+        {others.map((entry) => <li><a href={`${home}projects/${entry.slug}/`}>{entry.title}</a></li>)}
+      </ul>
+    </nav>
+  </article>
+</Site>
