@@ -39,7 +39,7 @@ const nav = [
       <div class="frame footer-inner">
         <a class="wordmark" href={home}>{portfolio.name}<span aria-hidden="true">■</span></a>
         <div class="footer-links">
-          {portfolio.contact.map((link) => <a href={link.url}>{link.label}</a>)}
+          {portfolio.contact.map((link) => <a href={link.url.includes(':') ? link.url : home + link.url}>{link.label}</a>)}
         </div>
       </div>
     </footer>

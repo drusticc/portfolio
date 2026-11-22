@@ -17,6 +17,14 @@
     {
       "label": "GitHub",
       "url": "https://github.com/drusticc"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/hudson-glines-638250387/"
+    },
+    {
+      "label": "Résumé",
+      "url": "hudson-glines-resume.pdf"
     }
   ],
   "skills": [
@@ -95,7 +103,12 @@
       ],
       "overview": "I developed a game with 2 others in a 48-hour game jam. As this was my first ever game jam, I just wanted a game I could be proud of in the end. We iteratively developed new features very quickly. I learned Lua and the LOVE framework using documentation on the fly. I developed many features like various power-ups, enemies, and player movement. One of our biggest challenges was resolving tricky merge conflicts caused by all of us making changes quickly in one small project. We worked through those conflicts carefully to ensure that functionality was not lost or broken.",
       "reflection": "Our team finished as runner-up for best sound design. I was most proud of becoming comfortable enough with a new set of tools to contribute to feature design and implementation. The whole experience has me more excited for hackathon and game jam opportunities in the future. This project highlighted the importance of planning the player experience early on. In the end, our game lacked a clear win condition and a difficulty ramp that makes it enjoyable and replayable. For future competitions, I want to plan those things earlier as they end up being the most important when judges and other attendees play your game.",
-      "links": [],
+      "links": [
+        {
+          "label": "Play on itch.io",
+          "url": "https://hiasd05.itch.io/head-over-healed"
+        }
+      ],
       "media": []
     }
   ]

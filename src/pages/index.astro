@@ -76,7 +76,7 @@ const [opening, ending] = portfolio.opening.split(' before ');
     <div class="frame contact-inner">
       <h2 id="contact-heading">Contact</h2>
       <div class="contact-links">
-        {portfolio.contact.map((link) => <a href={link.url}>{link.label}</a>)}
+        {portfolio.contact.map((link) => <a href={link.url.includes(':') ? link.url : home + link.url}>{link.label}</a>)}
       </div>
     </div>
   </section>
