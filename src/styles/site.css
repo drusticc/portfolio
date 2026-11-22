@@ -44,8 +44,7 @@ section[id] { scroll-margin-top: 1.25rem; }
   justify-content: space-between;
   gap: 1rem 2rem;
 }
-.wordmark { display: inline-flex; gap: .55rem; align-items: center; text-decoration: none; font-weight: 800; }
-.wordmark span { display: block; width: .65rem; height: .65rem; overflow: hidden; color: transparent; background: var(--accent); border: var(--line); }
+.wordmark { text-decoration: none; font-weight: 800; }
 .header nav, .footer-links { display: flex; gap: .55rem clamp(.75rem, 2.7vw, 2.5rem); flex-wrap: wrap; }
 .header nav a, .footer-links a, .back-link, .related-links a {
   font: 500 .875rem/1.4 var(--label);
@@ -59,11 +58,19 @@ section[id] { scroll-margin-top: 1.25rem; }
   line-height: 1.04;
   letter-spacing: -.055em;
 }
-.intro p {
+.intro-identity p {
   margin-top: .5rem;
   color: var(--muted);
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   line-height: 1.5;
+}
+
+.intro-about h2 {
+  margin-bottom: .7rem;
+  font: 600 .875rem/1.45 var(--label);
+  text-transform: uppercase;
+  letter-spacing: .035em;
+  color: var(--muted);
 }
 
 .case h1 {

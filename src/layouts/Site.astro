@@ -9,8 +9,8 @@ interface Props {
 const { title } = Astro.props;
 const home = import.meta.env.BASE_URL;
 const nav = [
-  ['Projects', '#projects'],
   ['About', '#about'],
+  ['Projects', '#projects'],
   ['Skills', '#skills'],
   ['Contact', '#contact'],
 ];
@@ -28,7 +28,7 @@ const nav = [
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="header">
       <div class="frame header-inner">
-        <a href={home} class="wordmark">{portfolio.name}<span aria-hidden="true">■</span></a>
+        <a href={home} class="wordmark">{portfolio.name}</a>
         <nav aria-label="Main navigation">
           {nav.map(([label, hash]) => <a href={home + hash}>{label}</a>)}
         </nav>
@@ -37,7 +37,7 @@ const nav = [
     <main id="main"><slot /></main>
     <footer class="footer">
       <div class="frame footer-inner">
-        <a class="wordmark" href={home}>{portfolio.name}<span aria-hidden="true">■</span></a>
+        <a class="wordmark" href={home}>{portfolio.name}</a>
         <div class="footer-links">
           {portfolio.contact.map((link) => <a href={link.url.includes(':') ? link.url : home + link.url}>{link.label}</a>)}
         </div>
