@@ -17,6 +17,9 @@ const projectUrl = (slug: string) => `${home}projects/${slug}/`;
         {portfolio.about.map((paragraph) => <p>{paragraph}</p>)}
       </div>
     </div>
+    <div class="concrete-strip" aria-hidden="true">
+      {Array.from({ length: 68 }, () => <span></span>)}
+    </div>
   </section>
 
   <section class="frame section" id="projects" aria-labelledby="project-heading">
