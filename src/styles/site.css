@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('./fonts/space-grotesk.woff2') format('woff2');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
   --paper: #F4F1EA;
@@ -6,6 +14,7 @@
   --rule: #000000;
   --accent: #FF5500;
   --line: 1px solid var(--rule);
+  --display: 'Space Grotesk', Arial, sans-serif;
   --label: ui-monospace, 'Cascadia Mono', Consolas, monospace;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--ink);
@@ -52,19 +61,30 @@ section[id] { scroll-margin-top: 1.25rem; }
 .header nav a { text-decoration: none; padding-block: .4rem; }
 .header nav a:hover { text-decoration: underline; }
 
-.intro { padding-block: clamp(2rem, 5vw, 4rem); }
+h1, h2, h3 { font-family: var(--display); }
+
+.intro { padding-block: clamp(1.75rem, 4vw, 3.5rem); }
+.intro-identity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .35rem 1.25rem;
+  border-bottom: var(--line);
+  padding-bottom: clamp(.85rem, 2vw, 1.4rem);
+}
 .intro h1 {
   font-size: clamp(2rem, 4vw, 3.75rem);
+  font-weight: 600;
   line-height: 1.04;
   letter-spacing: -.055em;
 }
 .intro-identity p {
-  margin-top: .5rem;
   color: var(--muted);
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   line-height: 1.5;
 }
 
+.intro-about { padding-top: clamp(1rem, 2.5vw, 1.85rem); }
 .intro-about h2 {
   margin-bottom: .7rem;
   font: 600 .875rem/1.45 var(--label);
@@ -72,10 +92,18 @@ section[id] { scroll-margin-top: 1.25rem; }
   letter-spacing: .035em;
   color: var(--muted);
 }
+.intro-copy.prose {
+  columns: 2;
+  column-gap: clamp(1.75rem, 4vw, 4rem);
+  max-width: none;
+  font-size: clamp(1rem, 1.35vw, 1.125rem);
+}
+.intro-copy p { break-inside: avoid-column; }
+
 
 .case h1 {
-  font-weight: 800;
-  line-height: .92;
+  font-weight: 700;
+  line-height: .96;
   letter-spacing: -.085em;
   text-wrap: balance;
 }
@@ -191,6 +219,7 @@ section[id] { scroll-margin-top: 1.25rem; }
   .frame { width: calc(100% - 2rem); }
   .header-inner, .footer-inner { align-items: flex-start; flex-direction: column; padding-block: .85rem; gap: .55rem; }
   .split { grid-template-columns: minmax(0, 1fr); }
+  .intro-copy.prose { columns: 1; max-width: 65ch; }
   .desktop-only { display: none; }
 }
 

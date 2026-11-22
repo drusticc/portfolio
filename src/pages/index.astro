@@ -6,14 +6,16 @@ const home = import.meta.env.BASE_URL;
 const projectUrl = (slug: string) => `${home}projects/${slug}/`;
 ---
 <Site>
-  <section class="intro frame split" id="about" aria-labelledby="intro-name">
+  <section class="intro frame" id="about" aria-labelledby="intro-name">
     <div class="intro-identity">
       <h1 id="intro-name">{portfolio.name}</h1>
       <p>{portfolio.role} at {portfolio.school}</p>
     </div>
-    <div class="intro-about prose">
+    <div class="intro-about">
       <h2>About</h2>
-      {portfolio.about.map((paragraph) => <p>{paragraph}</p>)}
+      <div class="intro-copy prose">
+        {portfolio.about.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
     </div>
   </section>
 
