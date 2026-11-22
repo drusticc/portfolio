@@ -275,7 +275,7 @@ h1, h2, h3 { font-family: var(--display); }
   background-image: var(--contact-pattern);
   background-repeat: repeat;
   background-position: center;
-  background-size: clamp(8rem, 17vw, 13rem) auto;
+  background-size: clamp(11rem, 22vw, 17rem) auto;
   opacity: .23;
   pointer-events: none;
 }
