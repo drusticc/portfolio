@@ -12,8 +12,8 @@ const projectUrl = (slug: string) => `${home}projects/${slug}/`;
       <p>{portfolio.role} at {portfolio.school}</p>
     </div>
     <div class="intro-about">
-      <h2>About</h2>
-      <div class="intro-copy prose">
+      <h2 class="section-label">About</h2>
+      <div class="editorial-copy">
         {portfolio.about.map((paragraph) => <p>{paragraph}</p>)}
       </div>
     </div>
@@ -47,9 +47,9 @@ const projectUrl = (slug: string) => `${home}projects/${slug}/`;
     </div>
   </section>
 
-  <section class="frame section split" id="skills" aria-labelledby="skills-heading">
-    <h2 id="skills-heading">Skills &amp;<br class="desktop-only" /> Experience</h2>
-    <div class="skills-list">
+  <section class="frame section" id="skills" aria-labelledby="skills-heading">
+    <h2 class="section-label" id="skills-heading">Skills &amp; Experience</h2>
+    <div class="editorial-copy">
       {portfolio.skills.map((skill) => (
         <div class="skill">
           <h3>{skill.title}</h3>

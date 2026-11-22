@@ -1,4 +1,12 @@
 @font-face {
+  font-family: 'Source Sans 3';
+  src: url('./fonts/source-sans-3.woff2') format('woff2');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Space Grotesk';
   src: url('./fonts/space-grotesk.woff2') format('woff2');
   font-weight: 300 700;
@@ -16,7 +24,7 @@
   --line: 1px solid var(--rule);
   --display: 'Space Grotesk', Arial, sans-serif;
   --label: ui-monospace, 'Cascadia Mono', Consolas, monospace;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Source Sans 3', Arial, sans-serif;
   color: var(--ink);
   background: var(--paper);
   font-synthesis: none;
@@ -85,20 +93,21 @@ h1, h2, h3 { font-family: var(--display); }
 }
 
 .intro-about { padding-top: clamp(1rem, 2.5vw, 1.85rem); }
-.intro-about h2 {
+.section-label {
   margin-bottom: .7rem;
   font: 600 .875rem/1.45 var(--label);
   text-transform: uppercase;
   letter-spacing: .035em;
   color: var(--muted);
 }
-.intro-copy.prose {
+.editorial-copy {
   columns: 2;
   column-gap: clamp(1.75rem, 4vw, 4rem);
-  max-width: none;
-  font-size: clamp(1rem, 1.35vw, 1.125rem);
+  font-size: clamp(1.075rem, 1.45vw, 1.25rem);
+  line-height: 1.55;
 }
-.intro-copy p { break-inside: avoid-column; }
+.editorial-copy > * { break-inside: avoid-column; }
+.editorial-copy > * + * { margin-top: 1rem; }
 
 
 .case h1 {
@@ -125,7 +134,7 @@ h1, h2, h3 { font-family: var(--display); }
   padding-block: clamp(2rem, 5vw, 5rem);
 }
 .section-title { margin-bottom: clamp(1.5rem, 3vw, 3rem); }
-.section h2, .contact-inner h2 {
+.section-title h2, .contact-inner h2 {
   font-size: clamp(2.4rem, 5.25vw, 5.45rem);
   line-height: .96;
   letter-spacing: -.07em;
@@ -180,9 +189,8 @@ h1, h2, h3 { font-family: var(--display); }
   gap: clamp(1.5rem, 5vw, 5rem);
   align-items: start;
 }
-.prose, .skills-list { max-width: 65ch; font-size: clamp(1rem, 1.7vw, 1.25rem); line-height: 1.6; }
+.prose { max-width: 65ch; font-size: clamp(1rem, 1.7vw, 1.25rem); line-height: 1.6; }
 .prose p + p { margin-top: 1rem; }
-.skill + .skill { border-top: var(--line); margin-top: 1.5rem; padding-top: 1.5rem; }
 .skill h3 { margin-bottom: .45rem; font-size: 1.25em; letter-spacing: -.035em; }
 .skill ul { padding-left: 1.2em; }
 .skill li + li { margin-top: .45rem; }
@@ -219,8 +227,7 @@ h1, h2, h3 { font-family: var(--display); }
   .frame { width: calc(100% - 2rem); }
   .header-inner, .footer-inner { align-items: flex-start; flex-direction: column; padding-block: .85rem; gap: .55rem; }
   .split { grid-template-columns: minmax(0, 1fr); }
-  .intro-copy.prose { columns: 1; max-width: 65ch; }
-  .desktop-only { display: none; }
+  .editorial-copy { columns: 1; max-width: 65ch; }
 }
 
 @media (max-width: 34rem) {
