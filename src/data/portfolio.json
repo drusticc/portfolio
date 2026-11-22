@@ -30,31 +30,46 @@
     {
       "title": "Software Development",
       "items": [
-        "Developing a responsive full-stack application using Next.js and Supabase as part of a 9-person development team.",
-        "Developed a 2D game in 2 days using Lua and LÖVE2D, implementing gameplay mechanics, player movement, and game logic with a 3-person development team."
-      ],
-      "projects": [
-        "scbscn",
-        "head-overhealed"
+        {
+          "text": "Developing a responsive full-stack application using Next.js and Supabase as part of a 9-person development team.",
+          "projects": [
+            "scbscn"
+          ]
+        },
+        {
+          "text": "Developed a 2D game in 2 days using Lua and LÖVE2D, implementing gameplay mechanics, player movement, and game logic with a 3-person development team.",
+          "projects": [
+            "head-overhealed"
+          ]
+        }
       ]
     },
     {
       "title": "Automation",
       "items": [
-        "Automated device-cleanup outreach using a Power Automate flow that pulled user and device information from Excel to generate personalized Teams messages for 200 users, saving hours of manual work and improving consistency."
-      ],
-      "projects": []
+        {
+          "text": "Automated device-cleanup outreach using a Power Automate flow that pulled user and device information from Excel to generate personalized Teams messages for 200 users, saving hours of manual work and improving consistency."
+        }
+      ]
     },
     {
       "title": "Communication and Teamwork",
       "items": [
-        "Collaborated with an Electrical Engineering intern to audit mine-site network infrastructure and update fiber-optic drawings.",
-        "Coordinated software projects with over 5 different groups through assignments, game jams, and midterm projects, assigning roles and contributing to feature development.",
-        "Work with four teammates to brainstorm, plan, promote, and run live music events for up to 500 attendees. Communicate regularly with teammates, performers, and venue staff while gaining hands-on experience in digital marketing and advertising, graphic design, and event accounting."
-      ],
-      "projects": [
-        "synthdicate",
-        "head-overhealed"
+        {
+          "text": "Collaborated with an Electrical Engineering intern to audit mine-site network infrastructure and update fiber-optic drawings."
+        },
+        {
+          "text": "Coordinated software projects with over 5 different groups through assignments, game jams, and midterm projects, assigning roles and contributing to feature development.",
+          "projects": [
+            "head-overhealed"
+          ]
+        },
+        {
+          "text": "Work with four teammates to brainstorm, plan, promote, and run live music events for up to 500 attendees. Communicate regularly with teammates, performers, and venue staff while gaining hands-on experience in digital marketing and advertising, graphic design, and event accounting.",
+          "projects": [
+            "synthdicate"
+          ]
+        }
       ]
     }
   ],

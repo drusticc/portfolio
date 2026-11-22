@@ -60,14 +60,20 @@ const projectUrl = (slug: string) => `${home}projects/${slug}/`;
       {portfolio.skills.map((skill) => (
         <div class="skill">
           <h3>{skill.title}</h3>
-          <ul>{skill.items.map((item) => <li>{item}</li>)}</ul>
-          {skill.projects.length > 0 && (
-            <div class="related-links">
-              {portfolio.projects.filter((project) => skill.projects.includes(project.slug)).map((project) => (
-                <a href={projectUrl(project.slug)}>{project.short}</a>
-              ))}
-            </div>
-          )}
+          <ul>
+            {skill.items.map((item) => (
+              <li>
+                {item.text}
+                {item.projects && (
+                  <div class="related-links">
+                    {portfolio.projects.filter((project) => item.projects?.includes(project.slug)).map((project) => (
+                      <a href={projectUrl(project.slug)}>{project.short}</a>
+                    ))}
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>
