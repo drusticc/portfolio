@@ -38,7 +38,7 @@
   font-synthesis: none;
 }
 
-:root[data-theme='dark'] {
+:root:not([data-theme='light']) {
   color-scheme: dark;
   --paper: var(--charcoal);
   --ink: var(--raw-paper);
@@ -90,14 +90,22 @@ section[id] { scroll-margin-top: 1.25rem; }
 
 .header-controls { display: flex; align-items: center; flex-wrap: wrap; gap: .45rem 1.25rem; }
 .theme-toggle {
-  min-height: 2.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border: var(--line);
-  padding: .4rem .7rem;
+  padding: 0;
   color: var(--ink);
   background: var(--paper);
   font: 500 .875rem/1.4 var(--label);
   cursor: pointer;
   text-transform: inherit;
+}
+.theme-toggle:not([hidden]) { display: grid; place-items: center; }
+.theme-moon {
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  box-shadow: inset -.38rem -.19rem 0 currentColor;
 }
 .theme-toggle:hover, .theme-toggle[aria-pressed='true'] {
   color: var(--charcoal);
@@ -318,6 +326,7 @@ h1, h2, h3 { font-family: var(--display); }
 @media (forced-colors: active) {
   :root { scrollbar-width: auto; scrollbar-color: auto; }
   .section-arrow, .contact-faces { display: none; }
+  .theme-moon { forced-color-adjust: none; color: ButtonText; }
   .section-arrow + .section { border-top: var(--line); }
   .button, .contact-section { border: 1px solid ButtonText; }
 }

@@ -20,14 +20,13 @@ const nav = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#F4F1EA" />
+    <meta name="theme-color" content="#1A1A1A" />
     <script is:inline>
       (() => {
         const storageKey = 'hudson-portfolio-theme';
-        const system = window.matchMedia('(prefers-color-scheme: dark)');
         const root = document.documentElement;
         const themeColor = document.querySelector('meta[name="theme-color"]');
-        let preference;
+        let preference = 'dark';
         let toggle;
 
         try {
@@ -38,14 +37,13 @@ const nav = [
         }
 
         function applyTheme() {
-          const dark = (preference ?? (system.matches ? 'dark' : 'light')) === 'dark';
+          const dark = preference === 'dark';
           root.dataset.theme = dark ? 'dark' : 'light';
           themeColor?.setAttribute('content', dark ? '#1A1A1A' : '#F4F1EA');
           toggle?.setAttribute('aria-pressed', String(dark));
         }
 
         applyTheme();
-        system.addEventListener('change', applyTheme);
         document.addEventListener('DOMContentLoaded', () => {
           toggle = document.querySelector('[data-theme-toggle]');
           if (!toggle) return;
@@ -75,7 +73,7 @@ const nav = [
           <nav aria-label="Main navigation">
             {nav.map(([label, hash]) => <a href={home + hash}>{label}</a>)}
           </nav>
-          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden>Dark mode</button>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Dark mode" aria-pressed="true" title="Dark mode" hidden><span class="theme-moon" aria-hidden="true"></span></button>
         </div>
       </div>
     </header>
