@@ -14,14 +14,21 @@ const face = [
   '..#.......#..',
   '...#######...',
 ];
-const tiles = face.join('').split('');
+
+const cells = face.flatMap((row, y) =>
+  Array.from(row, (cell, x) => {
+    if (cell === '.') return '';
+    const color = cell === '+' ? '#FF5500' : '#A0A0A0';
+    return `<use href="#tile" x="${16 + x * 12}" y="${13 + y * 12}" color="${color}"/>`;
+  }),
+).join('');
+const image = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 188 182">
+  <defs><g id="tile">
+    <path d="M.5.5h10v10h-10z" fill="none" stroke="currentColor"/>
+    <path d="M2 3h7l-3.5 5.5z" fill="none" stroke="currentColor" stroke-width=".65"/>
+  </g></defs>
+  ${cells}
+</svg>`;
+const background = `url("data:image/svg+xml,${encodeURIComponent(image)}")`;
 ---
-<div class="contact-faces" aria-hidden="true">
-  {Array.from({ length: 5 }, () => (
-    <div class="contact-face">
-      {tiles.map((cell) => (
-        <span class:list={{ 'geometric-tile': cell !== '.', 'face-accent': cell === '+' }}></span>
-      ))}
-    </div>
-  ))}
-</div>
+<div class="contact-faces" aria-hidden="true" style={{ '--contact-pattern': background }}></div>

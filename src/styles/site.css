@@ -259,7 +259,7 @@ h1, h2, h3 { font-family: var(--display); }
 .skill li + li { margin-top: .45rem; }
 .related-links { display: flex; flex-wrap: wrap; gap: .5rem 1rem; margin-top: .65rem; }
 
-.contact-section { color: var(--raw-paper); background: var(--charcoal); border-top: var(--line); }
+.contact-section { position: relative; isolation: isolate; color: var(--raw-paper); background: var(--charcoal); }
 .contact-inner {
   display: flex;
   flex-wrap: wrap;
@@ -269,28 +269,21 @@ h1, h2, h3 { font-family: var(--display); }
   padding-block: clamp(2.5rem, 8vw, 7rem);
 }
 .contact-faces {
-  --tile: clamp(.42rem, 1.05vw, .75rem);
-  display: flex;
-  flex: 0 0 100%;
-  justify-content: space-between;
-  gap: .75rem;
-  border-block: 1px solid #595959;
-  padding-block: clamp(.9rem, 2.5vw, 2rem);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--contact-pattern);
+  background-repeat: repeat;
+  background-position: center;
+  background-size: clamp(8rem, 17vw, 13rem) auto;
+  opacity: .23;
   pointer-events: none;
 }
-.contact-face {
-  display: grid;
-  grid-template-columns: repeat(13, var(--tile));
-  grid-auto-rows: var(--tile);
-  gap: 1px;
-  color: #A0A0A0;
-}
-.contact-face .face-accent { color: var(--accent); }
 
 
 .contact-links { display: flex; align-items: start; flex-direction: column; gap: .65rem; }
 .contact-links a { font-size: clamp(1.05rem, 2.6vw, 2.1rem); overflow-wrap: anywhere; }
-.contact-links a:hover { color: var(--accent); text-decoration-thickness: .15em; }
+.contact-links a:hover { color: var(--raw-paper); text-decoration-color: var(--accent); text-decoration-thickness: .15em; }
 .contact-links a:focus-visible { outline-color: var(--accent); }
 
 .footer { border-top: var(--line); padding: 1.25rem 0; background: var(--surface); }
@@ -311,13 +304,11 @@ h1, h2, h3 { font-family: var(--display); }
   .header-inner, .footer-inner { align-items: flex-start; flex-direction: column; padding-block: .85rem; gap: .55rem; }
   .split { grid-template-columns: minmax(0, 1fr); }
   .editorial-copy { columns: 1; max-width: 65ch; }
-  .contact-face:nth-child(n + 4) { display: none; }
 }
 
 @media (max-width: 34rem) {
   .contact-inner { align-items: center; }
   .contact-links { flex-basis: 100%; }
-  .contact-face:nth-child(n + 3) { display: none; }
   .case h1 { font-size: clamp(2.65rem, 10.5vw, 3.6rem); letter-spacing: -.07em; }
   .project-link { grid-template-columns: minmax(0, 1fr); gap: .8rem; }
   .project-cover { font-size: 2.15rem; }

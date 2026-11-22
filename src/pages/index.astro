@@ -73,12 +73,12 @@ const projectUrl = (slug: string) => `${home}projects/${slug}/`;
   </section>
 
   <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+    <ContactFace />
     <div class="frame contact-inner">
       <h2 id="contact-heading">Contact</h2>
       <div class="contact-links">
         {portfolio.contact.map((link) => <a href={link.url.includes(':') ? link.url : home + link.url}>{link.label}</a>)}
       </div>
-      <ContactFace />
     </div>
   </section>
 </Site>
