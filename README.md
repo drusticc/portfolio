@@ -1,13 +1,32 @@
 # Hudson Glines portfolio
 
-An Astro portfolio with a scrolling homepage and three project case studies.
+[Visit the portfolio](https://drusticc.github.io/portfolio/)
+
+This site introduces Hudson Glines, a Computer Systems Technology student at Saskatchewan Polytechnic. It includes case studies on the Synthdicate Entertainment website, the SCBSCN assessment platform, and the game jam project *Head Overhealed*.
+
+## Run locally
+
+The site uses Astro, Bun, and Node.js 24. From a local checkout:
 
 ```sh
 bun install
 bun run dev
-bun run build
 ```
 
-Portfolio text and links live in `src/data/portfolio.json`. To add project evidence, store the assets in `public/media/` and add entries to that project's `media` list. Each entry takes a `type` of `image` or `video`, a path such as `media/example.webp`, an `alt` description, and an optional `caption`. The first image also appears as the project cover. Add playable games and external trailers to the project's `links` list.
+Run `bun run build` to generate the static site in `dist/` and `bun run preview` to preview that build. The site has no backend, accounts, or required environment variables.
 
-For GitHub Pages, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**. The workflow runs on pushes to `main` and gets the published base path from GitHub Pages.
+## Project layout
+
+| Path | Purpose |
+| --- | --- |
+| `src/data/portfolio.json` | About, skills, contact links, and project case studies |
+| `src/pages/` | Homepage and static project routes |
+| `src/styles/` | Responsive layout, colour themes, and self-hosted fonts |
+| `public/` | Public downloads and font licences |
+| `.github/workflows/deploy.yml` | GitHub Pages build and deployment |
+
+## Hosting and assets
+
+GitHub Actions builds the site from `main` and deploys it to GitHub Pages. Astro uses the Pages URL and base path reported by GitHub, so project links work under `/portfolio/`. To deploy from your own repository, select **GitHub Actions** as the Pages source in the repository settings.
+
+The site uses [Source Sans 3](https://github.com/adobe-fonts/source-sans) and [Space Grotesk](https://github.com/floriankarsten/space-grotesk) under their respective SIL Open Font Licenses. The résumé and case studies are published for portfolio viewing. The repositories for the featured projects are separate from this site.
